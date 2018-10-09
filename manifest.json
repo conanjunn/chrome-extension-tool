@@ -1,0 +1,20 @@
+{
+	"name": "web-ip",
+	"version": "1.0.0",
+	"minimum_chrome_version": "18",
+	"manifest_version": 2,
+	"description": "Show the IP of the current website in the bottom right.",
+	"permissions": ["tabs", "http://*/*", "https://*/*", "webRequest", "chrome://net-internals/#dns"],
+	"background": {
+		"scripts": [ "background.js" ]
+	},
+  "content_scripts": [{
+		"all_frames": false,
+		"run_at": "document_end",
+		"js": ["ip.js"],
+		"matches": ["http://*/*", "https://*/*"]
+	}],
+	"browser_action": {
+    "default_icon": "icon48.png"
+  }
+}
